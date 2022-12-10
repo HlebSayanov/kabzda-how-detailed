@@ -1,6 +1,8 @@
 import React from "react";
 
 
+
+
 type AccordionPropsType = {
     titleValue: string
     collapsed:boolean
@@ -31,7 +33,7 @@ function AccordionTitle(props: AccordionTitlePropsType) {
 
     console.log('AccordionTitle rendering')
 
-    return <h3 onClick={props.callback}>---{props.title}---</h3>
+    return <h3 style={{cursor: 'pointer'}} onClick={props.callback}>---{props.title}---</h3>
 
 }
 

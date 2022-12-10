@@ -2,11 +2,12 @@ import React, {useState} from 'react';
 
 type SwitchType = {
     setOn: (on: boolean) => void
+    defaultOn?:boolean
 }
 
-const UncontrolledOnOff = (props: SwitchType) => {
+export  const UncontrolledOnOff = (props: SwitchType) => {
 
-    const [on, setOn] = useState(false)
+    const [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
 
     const styleOn = {
         display: 'inline-block',
@@ -55,4 +56,3 @@ const UncontrolledOnOff = (props: SwitchType) => {
     );
 };
 
-export default UncontrolledOnOff;

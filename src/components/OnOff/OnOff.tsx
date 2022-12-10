@@ -5,7 +5,7 @@ type ControlledOnOffType={
     onOff:boolean
     setOnOff:(value:boolean)=>void
 }
-export const ControlledOnOff = (props:ControlledOnOffType) => {
+export const OnOff = (props:ControlledOnOffType) => {
 
 
 
@@ -42,7 +42,7 @@ export const ControlledOnOff = (props:ControlledOnOffType) => {
 
 
     return (
-        <div style={{display:'flex'}}>
+        <div style={{display:'flex',cursor:'pointer'}}>
             <div style={styleOn} onClick={()=>props.setOnOff(true)}>On</div>
             <div style={styleOff} onClick={()=>props.setOnOff(false)}>Off</div>
             <div style={styleIndicator}></div>

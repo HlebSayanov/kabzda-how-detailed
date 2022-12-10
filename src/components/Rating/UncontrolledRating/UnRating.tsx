@@ -5,7 +5,7 @@ import {log} from "util";
 
 type RatingPropsType = {
     // value: number
-    // value?: 0 | 1 | 2 | 3 | 4 | 5
+     value?: 0 | 1 | 2 | 3 | 4 | 5
 }
 
 

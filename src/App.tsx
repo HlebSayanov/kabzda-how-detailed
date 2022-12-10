@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Rating, RatingStarType} from "./components/Rating/Rating";
-import UncontrolledOnOff from "./components/OnOff/UncontolledOnOff/UncontrolledOnOff";
 import {Accordion} from "./components/Accordion/Accordion";
 
-import {ControlledOnOff} from "./components/OnOff/ControlledOnOff";
+import {OnOff} from "./components/OnOff/OnOff";
 
 type PageTitlePropsType = {
     title: string
@@ -28,7 +27,7 @@ function App(props: any) {
             {/*<UncontrolledOnOff setOn={setSwitchOn}/> {switchOn.toString()}*/}
 
 
-            <ControlledOnOff onOff={onOff} setOnOff={setOnOff}/>
+            <OnOff onOff={onOff} setOnOff={setOnOff}/>
 
             <Accordion titleValue={'Menu'} collapsed={collapsedAccordion}
                        callback={setCollapsedAccordion}/>

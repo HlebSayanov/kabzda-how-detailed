@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 type AccordionPropsType = {
     titleValue: string
-    collapsed?: boolean
+    defaultValue?: boolean
 }
 const styleAccordion={
     cursor:'pointer',
@@ -13,7 +13,7 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
 
     console.log('Accordion rendered')
 
-    const [collapsed, setCollapsed] = useState(false)
+    const [collapsed, setCollapsed] = useState(props.defaultValue ? props.defaultValue : false)
 
 
 

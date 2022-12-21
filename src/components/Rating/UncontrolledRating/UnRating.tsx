@@ -6,6 +6,7 @@ import {log} from "util";
 type RatingPropsType = {
     // value: number
      value?: 0 | 1 | 2 | 3 | 4 | 5
+    callback?: ()=>void
 }
 
 
@@ -15,7 +16,7 @@ const styleStars = {
 
 export function UnRating(props: RatingPropsType) {
     console.log('Rating rendering')
-const [value, setValue]=useState(0)
+const [value, setValue]=useState<RatingPropsType | number>(props.value ? props.value : 0)
 
 
 

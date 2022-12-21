@@ -13,9 +13,13 @@ export default {
 
 const callbackValue=action('My clicked rating')
 
-export const ExampleRating = ()=> <UnRating/>
+export const ExampleUncontrolledRating1 = ()=> <UnRating value={1}/>
+export const ExampleUncontrolledRating2 = ()=> <UnRating value={2}/>
+export const ExampleUncontrolledRating3 = ()=> <UnRating  value={3}/>
+export const ExampleUncontrolledRating4 = ()=> <UnRating value={4}/>
+export const ExampleUncontrolledRating5 = ()=> <UnRating value={5}/>
 
-export const EditRating = ()=>{
+export const EditUncontrolledRating = ()=>{
     const [rating, setRating]=useState<RatingStarType>(0);
-   return <UnRating  value={rating} callback={setRating}/>
+   return <UnRating  value={rating} />
 }

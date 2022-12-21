@@ -6,15 +6,24 @@
 </head>
 <body>
 <script>
- function maps(x){
-// return x.map(el=> el *2)
-let arr=[]
-   for(let i = 0; i<x.length; i++){
-   arr.push(x[i]*2)
-   }
-   return arr
- }
-  console.log(maps([1, 2, 3]))
+
+    // let sum = 0
+    // let min = 0
+    // if(input === null || input.length === 0){
+    //     return []
+    // }else{
+    //     input.forEach(el => el> 0 ? sum++ : min+=el )
+    // }
+    // return [sum,min]
+    function countPositivesSumNegatives(input) {
+        return input && input.length ? [input.filter(p => p > 0).length, input.filter(n => n < 0).reduce((a, b) => a + b, 0)] : [];
+    }
+
+    }
+
+    // const countPositivesSumNegatives =(input)=> input.filter(el => el > 0 ? input.length : el < 0 ? input[el] + el : [] )
+    console.log(countPositivesSumNegatives([0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14]))
+    console.log(countPositivesSumNegatives([0]))
 </script>
 </body>
 </html>

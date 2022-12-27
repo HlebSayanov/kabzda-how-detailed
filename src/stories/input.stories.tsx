@@ -23,15 +23,15 @@ export const UncontrolledInput = () => {
 }
 export const UncontrolledInputRef = () => {
     const [value, setValue] = useState('')
-    const ref = useRef<HTMLInputElement>(null)
+    const fgref = useRef<HTMLInputElement>(null)
 
     const save = () => {
-        const elRef = ref.current as HTMLInputElement
+        const elRef = fgref.current as HTMLInputElement
 
         setValue(elRef.value)
     }
 
-    return <><input ref={ref}/>
+    return <><input ref={fgref}/>
         <button onClick={save}>save</button>
         : {value} </>
 
@@ -64,7 +64,6 @@ export const UncontrolledInputSaveTest = () => {
 
     const [example, setExample] = useState('')
     const refTest = useRef<HTMLInputElement>(null)
-
 
     const onClickSave = () => {
 

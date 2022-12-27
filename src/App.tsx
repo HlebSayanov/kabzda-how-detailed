@@ -29,8 +29,11 @@ function App(props: any) {
 
             <OnOff onOff={onOff} setOnOff={setOnOff}/>
 
-            <Accordion titleValue={'Menu'} collapsed={collapsedAccordion}
-                       callback={setCollapsedAccordion}/>
+            <Accordion titleValue={'Menu'}
+                       collapsed={collapsedAccordion}
+                       callback={setCollapsedAccordion}
+            onClick={()=>{}}
+            item={[]}/>
             <Rating callback={setRatingValue} value={valueRating}/>
 
 

@@ -1,0 +1,14 @@
+.wrapper{
+    border: 2px solid black;
+    cursor: pointer;
+    display: inline;
+    padding: 0px 10px;
+}
+
+.firstName{
+    /*border: 2px solid red;*/
+}
+
+.openMode{
+    border: 2px solid red;
+}

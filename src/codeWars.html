@@ -6,24 +6,9 @@
 </head>
 <body>
 <script>
-    function count (string) {
-        // The function code should be here
-        let arr = Object.values(string)
+    const grow = (x) => x.reduce((a,b)=>a*b)
 
-
-        const res = arr.reduce((acc, i) => {
-            if (acc.hasOwnProperty(i)) {
-                acc[i] += 1;
-            } else {
-                acc[i] = 1;
-            }
-            return acc;
-        },{})
- return res
-    }
-
-
-    console.log(count("aba"))
+    console.log(grow([1, 2, 3]))
 
 </script>
 </body>

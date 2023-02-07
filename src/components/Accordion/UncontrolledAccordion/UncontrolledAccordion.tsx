@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
+import {reducerUncontrolledAcc} from "./reducer-uncontrolledAcc";
 
 
 type AccordionPropsType = {
@@ -13,17 +14,22 @@ export function UncontrolledAccordion(props: AccordionPropsType) {
 
     console.log('Accordion rendered')
 
-    const [collapsed, setCollapsed] = useState(props.defaultValue ? props.defaultValue : false)
+    // const [collapsed, setCollapsed] = useState(props.defaultValue ? props.defaultValue : false)
+    // const [collapsed, setCollapsed] = useState(false)
+     debugger
+    const [state, setDispatch] = useReducer(reducerUncontrolledAcc, {collapsed:true})
 
 
 
     // const click = () => !collapsed ? setCollapsed(true) : setCollapsed(false)
 
     return <div>
-        <AccordionTitle   title={props.titleValue} callback={()=>setCollapsed(!collapsed)}/>
+        {/*<AccordionTitle   title={props.titleValue} callback={()=>setCollapsed(!collapsed)}/>*/}
+        {/*<AccordionTitle   title={props.titleValue} callback={()=>setCollapsed(!collapsed)}/>*/}
+        <AccordionTitle   title={props.titleValue} callback={()=>setDispatch({type:'CHANGE-COLLAPSED'})}/>
 
 
-        {!collapsed && <AccordionBody />}
+        {!state.collapsed && <AccordionBody />}
 
 
     </div>

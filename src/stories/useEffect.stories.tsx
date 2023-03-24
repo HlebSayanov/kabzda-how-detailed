@@ -1,5 +1,4 @@
-import React, {useEffect, useMemo, useState} from 'react';
-
+import React, {ReactNode, useEffect, useMemo, useState} from 'react';
 
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -8,16 +7,14 @@ export default {
 }
 
 
-
-
 export const ExampleUseSelector = () => {
- const [count, setCount] = useState(0)
- const [fake, setFake] = useState(document.title)
- const [title, setTile] = useState('')
+    const [count, setCount] = useState(0)
+    const [fake, setFake] = useState(document.title)
+    const [title, setTile] = useState('')
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log('no array of dependencies')
-        document.title=title
+        document.title = title
     })
     // useEffect(()=>{
     //     console.log('no array of dependencies')
@@ -34,8 +31,8 @@ export const ExampleUseSelector = () => {
 
     return (
         <>
-            <input onChange={(e)=>setFake(e.currentTarget.value)}/>
-            <button onClick={()=>setTile(fake)}>+</button>
+            <input onChange={(e) => setFake(e.currentTarget.value)}/>
+            <button onClick={() => setTile(fake)}>+</button>
             {title}
             {/*<button onClick={()=>{setCount(count+1)}}>add Count</button>*/}
             {/*{count}*/}
@@ -43,6 +40,89 @@ export const ExampleUseSelector = () => {
             {/*    <button onClick={()=>{setFake(fake+1)}}>add fake</button>*/}
             {/*    {fake}*/}
             {/*</div>*/}
+
+        </>
+    )
+
+}
+
+
+export const ExampleSetTimeOut = () => {
+    const [count, setCount] = useState(0)
+    const [fake, setFake] = useState(0)
+    // const [title, setTile] = useState('')
+
+    // useEffect(()=>{
+    //     console.log('no array of dependencies')
+    //    setTimeout(()=>{
+    //        console.log('tick')
+    //        setCount((n)=>n+1)
+    //    },1000)
+    //
+    // },[])
+    useEffect(() => {
+        console.log('no array of dependencies')
+        const x = setInterval(() => {
+            console.log('tick')
+            setCount(n => n + 1)
+        }, 1000)
+        setTimeout(() => {
+            clearInterval(x)
+        }, 5000)
+    }, [])
+
+
+    return (
+        <>
+
+            <button onClick={() => {
+                setCount(count + 1)
+            }}>add Count
+            </button>
+            {count}
+            <div>
+                <button onClick={() => {
+                    setFake(fake + 1)
+                }}>add fake
+                </button>
+                {fake}
+            </div>
+
+        </>
+    )
+
+}
+export const ExampleHomeWork = () => {
+    const [id, setId] =useState<number>()
+    const [data, setData] = useState(new Date())
+const time = data.toLocaleDateString()
+
+
+    useEffect(()=>{
+        setId(window.setInterval(()=>{
+            setData(new Date())
+        },1000))
+
+
+    },[])
+
+
+    const onClick = (id:number | undefined) => {
+        console.log(id)
+        return  clearInterval(id)
+    }
+    const onClick2 = (e:any) => {
+        return e.preventDefault()
+        // setId(window.setInterval(()=>{
+        //     setData(new Date())
+        // },1000))
+    }
+
+    return (
+        <>
+           <h1>{time} {data.toLocaleTimeString()} </h1>
+            <button onClick={()=>onClick(id)}>STOP TIME</button>
+            <button onClick={onClick2}>RUN TIME</button>
 
         </>
     )

@@ -16,5 +16,7 @@ export const ExampleRating = ()=> <Rating value={0} callback={callbackValue}/>
 
 export const EditRating = ()=>{
     const [rating, setRating]=useState<RatingStarType>(0);
+
+
    return <Rating  value={rating} callback={setRating}/>
 }

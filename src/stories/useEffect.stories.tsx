@@ -93,25 +93,25 @@ export const ExampleSetTimeOut = () => {
 
 }
 export const ExampleHomeWork = () => {
-    const [id, setId] =useState<number>()
+    const [id, setId] = useState<number>()
     const [data, setData] = useState(new Date())
-const time = data.toLocaleDateString()
+    const time = data.toLocaleDateString()
 
 
-    useEffect(()=>{
-        setId(window.setInterval(()=>{
+    useEffect(() => {
+        setId(window.setInterval(() => {
             setData(new Date())
-        },1000))
+        }, 1000))
 
 
-    },[])
+    }, [])
 
 
-    const onClick = (id:number | undefined) => {
+    const onClick = (id: number | undefined) => {
         console.log(id)
-        return  clearInterval(id)
+        return clearInterval(id)
     }
-    const onClick2 = (e:any) => {
+    const onClick2 = (e: any) => {
         return e.preventDefault()
         // setId(window.setInterval(()=>{
         //     setData(new Date())
@@ -120,12 +120,48 @@ const time = data.toLocaleDateString()
 
     return (
         <>
-           <h1>{time} {data.toLocaleTimeString()} </h1>
-            <button onClick={()=>onClick(id)}>STOP TIME</button>
+            <h1>{time} {data.toLocaleTimeString()} </h1>
+            <button onClick={() => onClick(id)}>STOP TIME</button>
             <button onClick={onClick2}>RUN TIME</button>
 
         </>
     )
 
 }
+
+export const KeyExampleUseEffect = () => {
+
+    const [count, setCounter] = useState(1)
+    const [text, setText] = useState('')
+    console.log('KeyExampleUseEffect')
+
+    useEffect(() => {
+        function handler(e: KeyboardEvent) {
+            console.log(e.key)
+            setText(text + e.key)
+        }
+
+        window.addEventListener('keypress', handler)
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+    }, [text])
+
+    return (
+        <>
+            count:{count}
+
+            <div>
+                <button onClick={() => setCounter(count + 1)}>add</button>
+            </div>
+            <div>
+                text: {text}
+            </div>
+
+
+        </>
+    )
+
+}
+
 
